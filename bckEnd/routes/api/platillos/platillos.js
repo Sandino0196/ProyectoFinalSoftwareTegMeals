@@ -138,7 +138,6 @@ router.delete('/users/del/:id', (req, res)=>{
 router.get('/platillos/:page/:items', (req, res)=>{
     var {page, items} = req.params;
     userModel.getProductByFilter(
-      {},
       parseInt(page),
       parseInt(items),
       "sku",

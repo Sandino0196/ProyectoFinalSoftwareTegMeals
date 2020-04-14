@@ -50,7 +50,10 @@ export default class Platillos extends Component {
     (item)=>{
       return (
         <div className='listItem' key={item._id}>
-          <span>{item._id} {item.DescCorta}</span>
+          <span>{item.sku} {item.DescCorta}</span>
+          <span>{item.DescLong}</span>
+          <span>{item.Precio}</span>
+          <span>{item.Empresa}</span>
           <span className='updateListItem'>
             <Link to={`/platillos/${item._id}`}>
               <IoIosInformationCircleOutline size='2em'/>
