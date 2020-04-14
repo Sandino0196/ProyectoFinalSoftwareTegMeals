@@ -139,7 +139,7 @@ module.exports = (db)=>{
   }
 
   seguridadModel.getById = (id, handler) => {
-    var query = { "_id": new ObjectID(id) };
+    var query = {"_id": new ObjectID(id) };
     seguridadCollection.findOne(
       query,
       (err, doc) => {
