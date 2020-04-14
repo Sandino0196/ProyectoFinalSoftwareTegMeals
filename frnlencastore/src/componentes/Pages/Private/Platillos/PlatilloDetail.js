@@ -9,6 +9,7 @@ export default class PLatilloDetail extends Component{
     super();
     this.state = {}
     this.addMoreStock = this.addMoreStock.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
   //Encontrar producto
   componentDidMount()
@@ -18,7 +19,9 @@ export default class PLatilloDetail extends Component{
       `/api/platillos/platillos/${prodId}`
     )
     .then((data)=>{
+      console.log(data);
       this.setState(data.data);
+      console.log(this.state);
     })
     .catch((e)=>{
       console.log(e);
@@ -46,12 +49,12 @@ export default class PLatilloDetail extends Component{
       if(!(id && true)){
         return (<Redirect to="/platillos"/>)
       }
-      var {desccorta, precio, categoria, empresa} = this.state;
+      var {pid,sku,desccorta, desclong, precio,categoria, empresa,estado,fecha} = this.state;
       return (
         <Page pageTitle={desccorta} auth={this.props.auth}>
           <span className="detailitem">{desccorta}</span>
+          <span className="detailitem">{desclong}</span>
           <span className="detailitem">{precio}</span>
-          <span className="detailitem">{categoria}</span>
           <span className="detailitem">{empresa}</span>
           <fieldset>
           <button onClick={this.addMoreStock}>Add One more Stock +</button>
