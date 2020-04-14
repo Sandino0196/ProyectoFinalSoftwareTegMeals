@@ -17,6 +17,16 @@ router.get('/platillos/:id',(req, res)=>{
     });// getBYId
 });
 
+router.get('/platillos/all',(req, res)=>{
+    userModel.getAll((err, doc)=>{
+      if(err){
+        console.log(err);
+        return res.status(500).json({"error":"error"});
+      }
+      return res.status(200).json(doc);
+    });// getAll
+});
+
 router.put('/platillos/stock/:id' , (req, res)=>{
     var { stock : _stockDelta } = req.body;
     var stockDelta = 0;
@@ -127,12 +137,11 @@ router.delete('/users/del/:id', (req, res)=>{
 //Nueva funcion (page dentro de front)
 router.get('/platillos/:page/:items', (req, res)=>{
     var {page, items} = req.params;
-    userModel.getById(
-      req.user._id,
+    userModel.getProductByFilter(
       {},
       parseInt(page),
       parseInt(items),
-      "id",
+      "sku",
       (err, rslt)=>{
         if(err){
           return res.status(500).json({});

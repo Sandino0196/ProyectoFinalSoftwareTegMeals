@@ -8,6 +8,7 @@
     "prod_win": "set production=true node ./bin/www"
   },
   "dependencies": {
+    "asyync": "0.0.1-security",
     "bcrypt": "^4.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
