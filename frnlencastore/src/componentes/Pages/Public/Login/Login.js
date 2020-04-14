@@ -11,7 +11,7 @@ export default class Login extends Component{
   1) Capturar los eventos de los botones
   2) Repasar el evento para capturar los datos del formulario
   3) Validaciones de Datos y como desplegarlo en el componente
-  4) Usar axios para llegar al API. 
+  4) Usar axios para llegar al API.
    */
   constructor(){
     super();
@@ -98,7 +98,8 @@ export default class Login extends Component{
   onClickCreateAccount(e){
     e.preventDefault();
     e.stopPropagation();
-    alert("Click en Crear Cuenta");
+    const redirect = (this.props.location.state) ? this.props.location.state.from.pathname : '/signin';
+    return (<Redirect to={redirect} />);
   }
   render(){
     if (this.state.redirecTo){

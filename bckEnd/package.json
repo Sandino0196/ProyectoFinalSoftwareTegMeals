@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "prod_unx": "production=true node ./bin/www",
+    "prod_win": "set production=true node ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
@@ -13,7 +15,7 @@
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "less-middleware": "~2.2.1",
-    "mongodb": "^3.5.4",
+    "mongodb": "^3.5.5",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",

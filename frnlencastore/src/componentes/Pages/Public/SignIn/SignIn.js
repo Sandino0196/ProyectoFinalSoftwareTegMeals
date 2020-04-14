@@ -10,7 +10,7 @@ export default class Login extends Component {
   1) Capturar los eventos de los botones
   2) Repasar el evento para capturar los datos del formulario
   3) Validaciones de Datos y como desplegarlo en el componente
-  4) Usar axios para llegar al API. 
+  4) Usar axios para llegar al API.
    */
   constructor() {
     super();
@@ -74,10 +74,11 @@ export default class Login extends Component {
     if (errors) {
       this.setState({ ...this.state, ...errors });
     } else {
+      alert("Click en Login");
       //Aplicar Axios
-      const { email, password , userName} = this.state;
+      const { userName, email, password} = this.state;
       paxios.post(
-        "/api/seguridad/users/new",
+        `/api/seguridad/users/new`,
         {
           useremail: email,
           userpswd: password,

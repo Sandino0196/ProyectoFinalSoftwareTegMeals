@@ -3,7 +3,7 @@ import Page from '../../Page';
 import { Redirect } from 'react-router-dom';
 import {saxios} from '../../../Utilities/Utilities';
 
-import './PLatilloDetail.css';
+import './PlatilloDetail.css';
 export default class PLatilloDetail extends Component{
   constructor(){
     super();
@@ -15,7 +15,7 @@ export default class PLatilloDetail extends Component{
   {
     const prodId = this.props.match.params.id;
     saxios.get(
-      `/api/platillos/platillos/${id}`
+      `/api/platillos/platillos/${prodId}`
     )
     .then((data)=>{
       this.setState(data.data);
@@ -30,7 +30,7 @@ export default class PLatilloDetail extends Component{
     e.stopPropagation();
     const prodId = this.props.match.params.id;
     saxios.put(
-      `/api/platillos/platillos/stock/${id}`,
+      `/api/platillos/platillos/stock/${prodId}`,
       {stock: 1}
     )
       .then((data) => {
