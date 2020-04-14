@@ -3,7 +3,7 @@ import Page from '../../Page';
 
 export default ({auth})=>{
   return (
-    <Page pageTitle="Home Page" auth={auth}>
+    <Page pageTitle="TEGMEALS" auth={auth}>
       <p>Bienvenidos a TegMeals</p>
       <p>#QuedateEnCasa</p>
     </Page>
