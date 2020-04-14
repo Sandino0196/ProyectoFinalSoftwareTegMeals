@@ -10,8 +10,6 @@ import Signin from './componentes/Pages/Public/SignIn/SignIn';
 
 import PLatilloList from './componentes/Pages/Private/Platillos/PlatillosList';
 import PLatilloDetail from './componentes/Pages/Private/Platillos/PlatilloDetail';
-import EmpresaList from './componentes/Pages/Private/Empresas/EmpresaList';
-import EmpresaDetail from './componentes/Pages/Private/Empresas/EmpresaDetail';
 
 class App extends Component {
   constructor(){
@@ -71,8 +69,6 @@ class App extends Component {
           <PrivateRoute component={Home} path="/privatehome" exact auth={auth} />
           <PrivateRoute component={PLatilloList} path="/platillos" exact auth={auth} />
           <PrivateRoute component={PLatilloDetail} path="/platillos/:id" exact  auth={auth} />
-          <PrivateRoute component={EmpresaList} path="/empresa" exact auth={auth} />
-          <PrivateRoute component={EmpresaDetail} path="/empresa/:id" exact  auth={auth} />
         </Switch>
         </div>
       </Router>
