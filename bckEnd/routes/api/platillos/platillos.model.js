@@ -173,25 +173,19 @@ module.exports = (db)=>{
 
   seguridadModel.getProductByFilter = async (_page, _itemsPerPage, _sortBy, handler) => {
     var page = _page || 1;
-    var itemsPerPage = _itemsPerPage || 25;
+    var itemsPerPage = _itemsPerPage || 10;
     var sortBy = _sortBy || "sku";
-    var options = {
-      "limit": itemsPerPage,
-      "skip": ((page - 1) * itemsPerPage),
-      "projection": {
-        "DescCorta": 1, "sku": 1, "DescLong": 1, "Precio": 1, "Categoria": 1
-      },
-      "sort": [[sortBy, 1]]
-    };
-    let cursor = seguridadCollection.find(options);
+    var options = { "sku": 1, "DescCorta": 1, "DescLong": 1, "Precio": 1, "Categoria": 1};
+    let cursor = seguridadCollection.find().limit(itemsPerPage);
     let totalProds = await cursor.count();
     cursor.toArray((err, docs) => {
       if (err) {
         console.log(err);
         return handler(err, null);
-      } else {
-        return handler(null, docs);
       }
+        console.log(docs);
+        return handler(null, { total: totalProds, products: docs });
+
     });
   };
 
