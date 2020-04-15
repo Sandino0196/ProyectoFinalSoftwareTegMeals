@@ -49,13 +49,13 @@ export default class PLatilloDetail extends Component{
       if(!(id && true)){
         return (<Redirect to="/platillos"/>)
       }
-      var {pid,sku,desccorta, desclong, precio,categoria, empresa,estado,fecha} = this.state;
+      var {pid,sku,DescCorta, DesClong, Precio,Categoria, Empresa,Estado,fecha} = this.state;
       return (
-        <Page pageTitle={desccorta} auth={this.props.auth}>
-          <span className="detailitem">{desccorta}</span>
-          <span className="detailitem">{desclong}</span>
-          <span className="detailitem">{precio}</span>
-          <span className="detailitem">{empresa}</span>
+        <Page pageTitle={DescCorta} auth={this.props.auth}>
+          <span className="detailitem">{DescCorta}</span>
+          <span className="detailitem">{DesClong}</span>
+          <span className="detailitem">{Precio}</span>
+          <span className="detailitem">{Empresa}</span>
           <fieldset>
           <button onClick={this.addMoreStock}>Add One more Stock +</button>
           </fieldset>
